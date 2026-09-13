@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANTIGRAVITY: Mundo 3D | Valley Explorer</title>
+  <meta name="description" content="Juego 3D de alta fidelidad: valle procedimental, física realista, personaje en tercera persona con controles WASD y cámara libre.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="game3d.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader-content">
+      <div class="loader-logo">ANTIGRAVITY</div>
+      <div class="loader-sub">VALLEY EXPLORER · 3D WORLD</div>
+      <div class="loader-bar-wrap">
+        <div id="loader-bar" class="loader-bar"></div>
+      </div>
+      <div id="loader-text" class="loader-text">Generando terreno...</div>
+    </div>
+  </div>
+
+  <!-- Game Canvas -->
+  <canvas id="game3d-canvas"></canvas>
+
+  <!-- HUD Overlay -->
+  <div id="hud3d" class="hidden">
+    <!-- Compass -->
+    <div id="compass">
+      <div id="compass-needle">N</div>
+    </div>
+
+    <!-- Minimap -->
+    <div id="minimap-wrap">
+      <canvas id="minimap" width="120" height="120"></canvas>
+      <div class="minimap-label">MAPA</div>
+    </div>
+
+    <!-- Stats -->
+    <div id="stats-panel">
+      <div class="stat-row">
+        <span class="stat-icon">🌡️</span>
+        <span class="stat-name">ALTITUD</span>
+        <span id="altitude-val" class="stat-val">0m</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">💨</span>
+        <span class="stat-name">VELOCIDAD</span>
+        <span id="speed-val" class="stat-val">0 km/h</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-icon">⏱️</span>
+        <span class="stat-name">TIEMPO</span>
+        <span id="time-val" class="stat-val">00:00</span>
+      </div>
+    </div>
+
+    <!-- Crosshair -->
+    <div id="crosshair">
+      <div class="ch-h"></div>
+      <div class="ch-v"></div>
+    </div>
+
+    <!-- Controls hint -->
+    <div id="controls-hint">
+      <span>WASD Mover</span>
+      <span>MOUSE Cámara</span>
+      <span>ESPACIO Saltar</span>
+      <span>SHIFT Correr</span>
+      <span>ESC Salir</span>
+    </div>
+  </div>
+
+  <!-- Start Screen Overlay -->
+  <div id="start3d">
+    <div class="start-card">
+      <div class="start-logo">ANTIGRAVITY</div>
+      <div class="start-title">VALLEY EXPLORER</div>
+      <p class="start-desc">
+        Explora un valle 3D generado proceduralmente con bosques densos, montañas escarpadas y niebla atmosférica.
+      </p>
+      <div class="controls-preview">
+        <div class="ctrl-item"><kbd>W A S D</kbd><span>Movimiento</span></div>
+        <div class="ctrl-item"><kbd>MOUSE</kbd><span>Cámara 360°</span></div>
+        <div class="ctrl-item"><kbd>ESPACIO</kbd><span>Saltar</span></div>
+        <div class="ctrl-item"><kbd>SHIFT</kbd><span>Correr</span></div>
+        <div class="ctrl-item"><kbd>ESC</kbd><span>Pausar</span></div>
+      </div>
+      <button id="btn-enter-world">
+        <span>ENTRAR AL MUNDO</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Pause Screen -->
+  <div id="pause3d" class="hidden">
+    <div class="pause-card">
+      <div class="pause-title">PAUSADO</div>
+      <button id="btn-resume">CONTINUAR</button>
+      <button id="btn-back-menu" class="secondary">MENU PRINCIPAL</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="game3d.js"></script>
+</body>
+</html>
